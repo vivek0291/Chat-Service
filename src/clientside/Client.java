@@ -28,7 +28,6 @@ import java.nio.charset.CharsetDecoder;
 public class Client extends Thread{
 	private Frame clientFrame = new Frame();
 	private JTextArea ChatBox=clientFrame.getChatBox();
-	private ReadThread myRead=clientFrame.getReadThread();
 	private static final int PORT=9999;
     private LinkedList Clients;
     private ByteBuffer ReadBuffer;
@@ -53,7 +52,7 @@ public class Client extends Thread{
         UserName=clientFrame.getUser();
          
         Connect(ServerName);
-        myRead.start();
+        clientFrame.getMyRead().start();
         while (true) {
              
             ReadMassage();

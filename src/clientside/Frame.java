@@ -91,7 +91,13 @@ public class Frame extends JFrame {
 		return ChatClient;
 	}
 
-	public ReadThread getReadThread() {
+	public class ReadThread extends Thread{
+		public void run() {
+	        ChatClient.ReadMassage();
+	    }
+	}
+
+	public Thread getMyRead() {
 		// TODO Auto-generated method stub
 		return myRead;
 	}
